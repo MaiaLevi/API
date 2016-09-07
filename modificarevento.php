@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('ca-cdbr-azure-central-a.cloudapp.net','b926aabc612c57','42038123','u939089919_bd');
+$con=mysqli_connect('ca-cdbr-azure-central-a.cloudapp.net','b926aabc612c57','a843969f','u939089919_bd');
 
 /* verificar conexión */
 if (mysqli_connect_errno()) {
