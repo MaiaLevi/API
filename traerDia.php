@@ -13,6 +13,7 @@ $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
 		{ 
+		var_dump($row);
 			$Bloque=$row['bloque'];
 			$Materia=$row['Materia'];
 			$objeto = array('Bloque'=>$Bloque,'Materia'=> $Materia);	
