@@ -8,7 +8,7 @@ if (mysqli_connect_errno()) {
 $Busqueda=$_GET["Busqueda"];
 $id=$_GET["id"];
 //hacer inner join con usuario asi se muestra quien lo subio
-$query="SELECT libro.IdLibro, libro.Nombre, libro.Descripcion, libro.Anio, usuario.nombre AS Usuario, usuario.IdUsuario, materia.Nombre AS Materia, 
+$query="SELECT libro.IdLibro, libro.Nombre, libro.Descripcion, libro.Anio, usuario.nombre AS Usuario, usuario.IdUsuario, usuario.celular, materia.Nombre AS Materia, 
 libro.IdMateria FROM libro INNER JOIN materia ON libro.IdMateria=materia.IdMateria INNER JOIN usuario ON libro.IdUsuario=usuario.IdUsuario 
 WHERE libro.Nombre LIKE '%$Busqueda%' AND libro.Vendido=0 AND libro.IdUsuario NOT IN ('$id')";
 //$stmt->bind_result($col1, $col2);
@@ -27,9 +27,10 @@ $objetos = array();
 			//$Imagen=$row['Imagen'];	
 			$Usuario=$row['Usuario'];
 			$IdUsuario=$row['IdUsuario'];
+			$Celular=$row['celular'];
 			$IdMateria=$row['IdMateria'];
 			$Materia=$row['Materia'];
-			$objeto = array('IdLibro'=> $IdLibro, 'Nombre'=> $Nombre, 'Descripcion'=> $Descripcion,'Anio'=>$Anio, 'Usuario'=>$Usuario, 'IdUsuario'=>$IdUsuario,'Materia'=> $Materia,'IdMateria'=> $IdMateria);	
+			$objeto = array('IdLibro'=> $IdLibro, 'Nombre'=> $Nombre, 'Descripcion'=> $Descripcion,'Anio'=>$Anio, 'Usuario'=>$Usuario, 'IdUsuario'=>$IdUsuario,'Celular'=>$Celular,'Materia'=> $Materia,'IdMateria'=> $IdMateria);	
 			$objetos[] = $objeto;
 			
 		}
