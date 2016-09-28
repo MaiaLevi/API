@@ -13,12 +13,10 @@ $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
 		{ 
-		var_dump($row);
 			$Bloque=$row['bloque'];
 			$Materia=$row['Materia'];
 			$objeto = array('Bloque'=>$Bloque,'Materia'=> $Materia);	
-				$objetos[] = $objeto;
-			
+			$objetos[] = $objeto;
 		}
 $close = mysqli_close($con) 
 or die("Ha sucedido un error inesperado en la desconexion de la base de datos");
