@@ -7,14 +7,14 @@ if (mysqli_connect_errno()) {
 //$res=$stmt->get_result();
 $id=$_GET["IdDivision"];
 $dia=$_GET["Dia"];
-$query="SELECT horario.bloque, materia.Nombre FROM horario INNER JOIN materia ON horario.idmateria=materia.IdMateria WHERE horario.iddivision='$id' AND '$Dia'= horario.idsemana ORDER BY horario.bloque ASC";
+$query="SELECT horario.bloque, materia.Nombre AS Materia FROM horario INNER JOIN materia ON horario.idmateria=materia.IdMateria WHERE horario.iddivision='$id' AND '$Dia'= horario.idsemana ORDER BY horario.bloque ASC";
 //$stmt->bind_result($col1, $col2);
 $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
 		{ 
 			$Bloque=$row['bloque'];
-			$Materia=$row['Nombre'];
+			$Materia=$row['Materia'];
 			$objeto = array('Bloque'=>$Bloque,'Materia'=> $Materia);	
 				$objetos[] = $objeto;
 			
