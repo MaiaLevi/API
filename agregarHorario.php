@@ -19,5 +19,6 @@ $stmt->bind_param(
 		$horario["idsemana"],
 		);
 		$stmt->execute();
+		var_dump($stmt);
 mysqli_close($con);
 ?>
