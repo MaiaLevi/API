@@ -11,7 +11,7 @@ $horario=json_decode($string,true);
 $query = "INSERT INTO horario (bloque, idmateria, iddivision, idsemana) VALUES (?, ?, ?, ?)";
 $stmt=$con->prepare($query);
 $stmt->bind_param(
-		'iiii',
+		'ssss',
 		$horario["bloque"],
 		$horario["idmateria"],
 		$horario["iddivision"],
