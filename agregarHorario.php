@@ -10,7 +10,6 @@ $string = file_get_contents('php://input');
 $horario=json_decode($string,true);
 $query = "INSERT INTO horario (bloque, idmateria, iddivision, idsemana) VALUES (?, ?, ?, ?)";
 $stmt=$con->prepare($query);
-echo $query;
 $stmt->bind_param(
 		'iiii',
 		$horario["bloque"],
@@ -19,6 +18,5 @@ $stmt->bind_param(
 		$horario["idsemana"],
 		);
 		$stmt->execute();
-		var_dump($stmt);
 mysqli_close($con);
 ?>
