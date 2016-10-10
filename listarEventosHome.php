@@ -3,11 +3,8 @@ $con=mysqli_connect("ca-cdbr-azure-central-a.cloudapp.net","b926aabc612c57","a84
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-		
-//$res=$stmt->get_result();
 $id=$_GET["IdUsuario"];
 $query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo WHERE IdUsuario='$id' ORDER BY evento.Fecha ASC LIMIT 4“;
-//$stmt->bind_result($col1, $col2);
 $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
