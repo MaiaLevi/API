@@ -4,7 +4,7 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $id=$_GET["IdUsuario"];
-$query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo WHERE IdUsuario='$id' ORDER BY evento.Fecha ASC LIMIT 4“;
+$query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo WHERE IdUsuario='$id' ORDER BY evento.Fecha ASC LIMIT 4";
 $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
