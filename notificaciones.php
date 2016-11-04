@@ -6,7 +6,7 @@ if (mysqli_connect_errno()) {
 //$res=$stmt->get_result();
 $id=$_GET["IdUsuario"];
 date_default_timezone_get();
-$from_date = date('Y-m-d', time());
+$from_date = date('Y-m-d',strtotime($Date. ' + 7 days'), time());
 //"SELECT * FROM logs WHERE date BETWEEN '" . $from_date . "' AND  '" . $to_date . "'ORDER by id DESC"
 $query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo WHERE IdUsuario='$id' AND evento.Fecha BETWEEN '" . $from_date . "' AND  '" . $from_date . "' ORDER BY evento.Fecha ASC";
 //$stmt->bind_result($col1, $col2);
