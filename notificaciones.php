@@ -6,7 +6,8 @@ if (mysqli_connect_errno()) {
 //$res=$stmt->get_result();
 $id=$_GET["IdUsuario"];
 date_default_timezone_get();
-$from_date = date('Y-m-d',strtotime($from_date. ' + 7 days'), time());
+$from_date=strtotime("+ 7 days");
+$from_date= date("Y-m-d", $from_date); 
 var_dump($from_date);
 $query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo WHERE IdUsuario='$id' AND evento.Fecha BETWEEN '" . $from_date . "' AND  '" . $from_date . "' ORDER BY evento.Fecha ASC";
 //$stmt->bind_result($col1, $col2);
