@@ -4,12 +4,12 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 //$res=$stmt->get_result();
-$idDivi=$_GET["IdDivision"];
+$id=$_GET["IdDivision"];
 date_default_timezone_get();
 $from_date=strtotime("+7 days");
 $from_date= date("Y-m-d", $from_date); 
 //var_dump($from_date);
-$query="SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo INNER JOIN division ON evento.iddivision=division.iddivision WHERE evento.iddivision='$idDivi’ AND evento.Fecha BETWEEN '" . $from_date . "' AND  '" . $from_date . "' ORDER BY evento.Fecha ASC";
+$query=""SELECT evento.Id, evento.Fecha, evento.Descripcion,evento.IdMateria, materia.Nombre AS Materia, evento.IdTipo, tipo.Nombre AS Tipo, evento.IdUsuario FROM evento INNER JOIN materia ON evento.IdMateria=materia.IdMateria INNER JOIN tipo ON evento.IdTipo=tipo.IdTipo INNER JOIN division ON evento.iddivision=division.iddivision WHERE evento.iddivision='$id' AND evento.Fecha BETWEEN '" . $from_date . "' AND  '" . $from_date . "' ORDER BY evento.Fecha ASC";
 //$stmt->bind_result($col1, $col2);
 $result = mysqli_query($con, $query);
 $objetos = array();
