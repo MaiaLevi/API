@@ -16,7 +16,7 @@ $stmt->bind_param('sssssii',
 		$usuario["apellido"],
 		$usuario["mail"],
 		$usuario["celular"],
-		$usuario["idusuario"]
+		$_GET["idusuario"];
 		);
 $stmt->execute(); 
 $stmt->close();
