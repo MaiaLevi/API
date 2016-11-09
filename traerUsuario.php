@@ -8,7 +8,6 @@ $query="SELECT usuario.idusuario, usuario.nombre, usuario.apellido, usuario.mail
 $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
-		var_dump($row);
 		
 		{ 
 			$idusuario=$row['idusuario'];
