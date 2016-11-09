@@ -11,7 +11,7 @@ var_dump($string);
 var_dump($usuario);
 $stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, celular=?
 WHERE idusuario=?");
-$stmt->bind_param('sssssii',
+$stmt->bind_param('sssi',
 		$usuario["nombre"],
 		$usuario["apellido"],
 		$usuario["mail"],
