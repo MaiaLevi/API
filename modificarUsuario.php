@@ -7,14 +7,12 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents('php://input');
 $usuario=json_decode($string,true);
-$stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, contrasena=?, fechanacimiento=?, celular=?
+$stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, celular=?
 WHERE idusuario=?");
 $stmt->bind_param('sssssii',
 		$usuario["nombre"],
 		$usuario["apellido"],
 		$usuario["mail"],
-		$usuario["contrasena"],
-		$usuario["fechanacimiento"],
 		$usuario["celular"],
 		$usuario["idusuario"]
 		);
