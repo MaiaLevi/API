@@ -7,6 +7,7 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents('php://input');
 $usuario=json_decode($string,true);
+var_dump($string);
 var_dump($usuario);
 $stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, celular=?
 WHERE idusuario=?");
