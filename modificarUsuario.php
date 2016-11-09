@@ -16,8 +16,8 @@ $stmt->bind_param('sssii',
 		$usuario["apellido"],
 		$usuario["mail"],
 		$usuario["celular"],
-		$_GET["idusuario"];
-		);
+		$usuario["idUsuario"]
+		 );
 $stmt->execute(); 
 $stmt->close();
 ?>
