@@ -4,7 +4,7 @@ if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $id=$_GET["idusuario"];
-$query="SELECT usuario.idusuario, usuario.nombre, usuario.apellido, usuario.mail, usuario.contrasena, usuario.fechanacimiento, usuario.celular, usuario.iddivision FROM usuario INNER JOIN division ON usuario.iddivision=division.Id WHERE idusuario='$id'";
+$query="SELECT usuario.idusuario, usuario.nombre, usuario.apellido, usuario.mail, usuario.contrasena, usuario.fechanacimiento, usuario.celular, usuario.iddivision FROM usuario INNER JOIN division ON usuario.iddivision=division.iddivision WHERE idusuario='$id'";
 $result = mysqli_query($con, $query);
 $objetos = array();
 	while($row = mysqli_fetch_array($result)) 
