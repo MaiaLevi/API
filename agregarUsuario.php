@@ -8,15 +8,14 @@ if (mysqli_connect_errno()) {
 }		
 $string = file_get_contents('php://input');
 $libro=json_decode($string,true);
-$query = "INSERT INTO usuario (nombre, apellido, mail, contrasena, fechanacimiento, celular, iddivision) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO usuario (nombre, apellido, mail, fechanacimiento, celular, iddivision) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt=$con->prepare($query);
 echo $query;
 $stmt->bind_param(
-		'sssssii',
+		'ssssii',
 		$usuario["nombre"],
 		$usuario["apellido"],
 		$usuario["mail"],
-		$usuario["contrasena"],
 		$usuario["fechanacimiento"],
 		$usuario["celular"],
 		$usuario["iddivision"]
@@ -26,7 +25,6 @@ $stmt->bind_param(
 		$usuario["nombre"].
 		$usuario["apellido"].
 		$usuario["mail"].
-		$usuario["contrasena"].
 		$usuario["fechanacimiento"].
 		$usuario["celular"].
 		$usuario["iddivision"];
