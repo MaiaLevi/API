@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
     exit();
 }		
 $string = file_get_contents('php://input');
-$libro=json_decode($string,true);
+$usuario=json_decode($string,true);
 $query = "INSERT INTO usuario (nombre, apellido, mail, contrasena, fechanacimiento, celular, iddivision) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt=$con->prepare($query);
 echo $query;
