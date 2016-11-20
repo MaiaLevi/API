@@ -9,24 +9,21 @@ if (mysqli_connect_errno()) {
 $string = file_get_contents('php://input');
 $horario=json_decode($string,true);
 $boolean=true;
-$query="SELECT iddivision, bloque, idsemana FROM horario WHERE iddivision=? AND bloque=? AND idsemana=?";
-$stmt=$con->prepare($query);
-$stmt->bind_param(
-		'iii',
-		$horario["iddivision"],
-		$horario["bloque"],
-		$horario["idsemana"]
-		);
-		$stmt->execute();
-//primero hacer select, si devuelve vacio se agrega sino no
+$idDivi=$_GET["iddivision"];
+$bloque=$_GET["bloque"];
+$semana=$_GET["idsemana"];
+$query="SELECT iddivision, bloque, idsemana FROM horario WHERE iddivision='$idDivi' AND bloque='$bloque' AND idsemana='$semana'";
+//$stmt->bind_result($col1, $col2);
+$result = mysqli_query($con, $query);
 $objetos = array();
-while($row = mysqli_fetch_array($result)) 
-{
-	$objeto = array('Respuesta'=> "false");	
-	$objetos[] = $objeto;
-	$boolean=false;
+	while($row = mysqli_fetch_array($result)) 
+		{ 
+			$objeto = array('Respuesta'=> "true");	
+				$objetos[] = $objeto;
+		$boolean=false;
 			
-}
+		}
+header("Content-Type: application/json;charset=utf-8");
 $json_string = json_encode(array('result' => $objetos), JSON_UNESCAPED_UNICODE );
 echo $json_string;
 if ($boolean)
@@ -42,6 +39,5 @@ $stmt->bind_param(
 		);
 		$stmt->execute();
 }
-
 mysqli_close($con);
 ?>
