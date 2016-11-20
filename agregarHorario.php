@@ -15,17 +15,11 @@ $semana=$_GET["idsemana"];
 $query="SELECT iddivision, bloque, idsemana FROM horario WHERE iddivision='$idDivi' AND bloque='$bloque' AND idsemana='$semana'";
 //$stmt->bind_result($col1, $col2);
 $result = mysqli_query($con, $query);
-$objetos = array();
 	while($row = mysqli_fetch_array($result)) 
-		{ 
-			$objeto = array('Respuesta'=> "true");	
-				$objetos[] = $objeto;
-		$boolean=false;
-			
+		{
+			header('HTTP/1.1 401 Unauthorized', true, 401);
+			$boolean=false;
 		}
-header("Content-Type: application/json;charset=utf-8");
-$json_string = json_encode(array('result' => $objetos), JSON_UNESCAPED_UNICODE );
-echo $json_string;
 if ($boolean)
 {
 $query = "INSERT INTO horario (iddivision, bloque, idsemana, idmateria) VALUES (?, ?, ?, ?)";
