@@ -18,7 +18,7 @@ $stmt->bind_param('sssisi',
 		$usuario["celular"],
 		$usuario["fechanacimiento"],
 		$usuario["iddivision"],
-		$usuario["idUsuario"]
+		$usuario["idusuario"]
 		 );
 $stmt->execute(); 
 $stmt->close();
