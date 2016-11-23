@@ -9,12 +9,13 @@ $string = file_get_contents('php://input');
 $usuario=json_decode($string,true);
 var_dump($string);
 var_dump($usuario);
-$stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, celular=?, fechanacimiento=?
+$stmt = $con->prepare("UPDATE usuario SET nombre=?, apellido=?, mail=?, iddivision=?, celular=?, fechanacimiento=?
 WHERE idusuario=?");
 $stmt->bind_param('sssisi',
 		$usuario["nombre"],
 		$usuario["apellido"],
 		$usuario["mail"],
+		$usuario["iddivision"],
 		$usuario["celular"],
 		$usuario["fechanacimiento"],
 		$usuario["idUsuario"]
